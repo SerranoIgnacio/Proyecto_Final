@@ -1,4 +1,4 @@
-# Proyecto_Final
+# Proyecto_Final (Python Inicial)
 Este proyecto es un integrador de Python Inicial.
 
 En este proyecto desarrollaremos un sistema de Stock de materiales para la construccion.
