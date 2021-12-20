@@ -6,10 +6,10 @@ def menu():
     print('-------------------------------------')
     print('|¡Bienvenido a Corralon de Materiales')
     print('|Con un N° del 1 al 5 selecciona una opción:')
-    print('|(1) ¿Quiere consultar Stock de un material?')
-    print('|(2) ¿Quiere Consultar Stock Completo?')
-    print('|(3) ¿Quiere Agregar un Material Nuevo?')
-    print('|(4) ¿Quiere Agregar Stock a un Material?')
+    print('|(1) ¿Quiere Agregar un Material Nuevo?')
+    print('|(2) ¿Quiere Agregar Stock a un Material?')
+    print('|(3) ¿Quiere consultar Stock de un material?')
+    print('|(4) ¿Quiere Consultar Stock Completo?')
     print('|(5) Salir.')
     print('-------------------------------------')
 
@@ -20,26 +20,25 @@ else:
     # lo abro con "w" para crearlo'''
 
 
-
-
-
 if __name__ == '__main__':
     p = 0
     while p == 0:
         menu()
-        opcion = int(input())
-        if opcion in range(1,6):
-            if opcion == 1:
-                pass
-            elif opcion == 2:
-                pass
-            elif opcion == 3:
-                pass
-            elif opcion == 4:
-                pass
-            elif opcion == 5:
-                p = 1
-                print('Saliendo del programa...\n')
+        opcion = input()
+        if opcion.isnumeric():
+            if opcion in range(1,6):
+                if opcion == 1:
+                    pass
+                elif opcion == 2:
+                    pass
+                elif opcion == 3:
+                    pass
+                elif opcion == 4:
+                    pass
+                elif opcion == 5:
+                    p = 1
+                    print('Saliendo del programa...\n')
+            else:
+                print('¡¡¡Seleccion incorrecta!!! Elija un dato valido.\n')
         else:
-            print('¡¡¡Seleccion incorrecta!!! Elija un dato valido.\n')
-    
+            print('El valor ingresado debe ser un numero del 1 al 5.\n')
