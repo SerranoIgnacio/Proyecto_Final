@@ -40,11 +40,9 @@ def buscar_material(mate_buscado):
         csvfile = open('materiales.csv', 'r')
         mate = list(csv.DictReader(csvfile))
         for material in mate:
-            diccionario = material['material']
-            #for key, value in diccionario.items(): 
+            diccionario = material['material'] 
             if mate_buscado == diccionario:
                 print(material['material'], '= ', material['stock'])
-        
         csvfile.close()
     else:
         print('No existen datos para consultar.')
