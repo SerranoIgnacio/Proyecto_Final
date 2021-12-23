@@ -35,12 +35,15 @@ def agrega_material(material, stock):
             writer.writerow(fila)
 
         
-def buscar_material():
+def buscar_material(mate_buscado):
     if os.path.exists("materiales.csv") == True:
         csvfile = open('materiales.csv', 'r')
         mate = list(csv.DictReader(csvfile))
         for material in mate:
-            print(material['material'], '= ', material['stock'])
+            diccionario = material['material']
+            #for key, value in diccionario.items(): 
+            if mate_buscado == diccionario:
+                print(material['material'], '= ', material['stock'])
         
         csvfile.close()
     else:
@@ -66,7 +69,8 @@ if __name__ == '__main__':
                     pass
                 elif opcion == 3: #¿Consultar Stock de un material?
                     #consulta_stock_material()
-                    buscar_material()
+                    mate_buscado = input('Ingrese material a imprimir: ')
+                    buscar_material(mate_buscado)
                 elif opcion == 4: #¿Consultar Stock Completo?
                     #consulta_stock_completo()
                     pass
