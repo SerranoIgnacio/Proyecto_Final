@@ -36,7 +36,15 @@ def agrega_material(material, stock):
 
         
 def buscar_material():
-    pass
+    if os.path.exists("materiales.csv") == True:
+        csvfile = open('materiales.csv', 'r')
+        mate = list(csv.DictReader(csvfile))
+        for material in mate:
+            print(material['material'], '= ', material['stock'])
+        
+        csvfile.close()
+    else:
+        print('No existen datos para consultar.')
    
 if __name__ == '__main__':
     p = 0
@@ -53,12 +61,12 @@ if __name__ == '__main__':
                     #material, stock = ''
                 elif opcion == 2: #¿Agregar Stock a un Material?
                     material = input('ingrese material a incrementar: ')
-                    buscar_material()
+                    
                     #agrega_stock()
                     pass
                 elif opcion == 3: #¿Consultar Stock de un material?
                     #consulta_stock_material()
-                    pass
+                    buscar_material()
                 elif opcion == 4: #¿Consultar Stock Completo?
                     #consulta_stock_completo()
                     pass
