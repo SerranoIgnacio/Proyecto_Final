@@ -81,6 +81,8 @@ def agrega_stock(v_material, v_stock):
         csvfile.close()
     else:
         print('No existen datos para consultar.')
+
+
    
 if __name__ == '__main__':
     while True:
