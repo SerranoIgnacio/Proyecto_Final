@@ -38,12 +38,16 @@ def agrega_material(material, stock):
         
 def buscar_material(mate_buscado):
     if os.path.exists("materiales.csv") == True:
+        b=0
         csvfile = open('materiales.csv', 'r')
         mate = list(csv.DictReader(csvfile))
         for material in mate:
             diccionario = material['material'] 
             if mate_buscado == diccionario:
                 print(material['material'], '= ', material['stock'])
+                b = 1
+        if b == 0:
+            print('El material no existe.')
         csvfile.close()
     else:
         print('No existen datos para consultar.')
