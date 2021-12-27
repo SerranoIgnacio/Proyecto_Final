@@ -15,7 +15,7 @@ def menu():
     print('-------------------------------------')
 
 
-def agrega_material(material, stock):
+def agrega_material(material, stock): #valida que exista el csv y le agrega el material ingresado por consola.
     if os.path.exists("materiales.csv") == True:
         csvfile = open('materiales.csv', 'a', newline='')
         header = ['material', 'stock'] 
@@ -36,7 +36,7 @@ def agrega_material(material, stock):
             writer.writerow(fila)
 
         
-def buscar_material(mate_buscado):
+def buscar_material(mate_buscado): #Busca un unmaterial ingresado por consola y valida que exista el archivo csv.
     if os.path.exists("materiales.csv") == True:
         b=0
         csvfile = open('materiales.csv', 'r')
@@ -53,7 +53,7 @@ def buscar_material(mate_buscado):
         print('No existen datos para consultar.')
 
 
-def consulta_stock_completo():
+def consulta_stock_completo(): #recupera todo el contenido del csv
     if os.path.exists("materiales.csv") == True:
         csvfile = open('materiales.csv', 'r')
         mate = list(csv.DictReader(csvfile))
@@ -64,7 +64,7 @@ def consulta_stock_completo():
         print('No existen datos para consultar.')
 
 
-def agrega_stock(v_material, v_stock):
+def agrega_stock(v_material, v_stock):# si existe el archivo, busca el material y le agrega el stock.
     if os.path.exists("materiales.csv") == True:
         b = 0
         header = ['material', 'stock'] 
@@ -78,11 +78,12 @@ def agrega_stock(v_material, v_stock):
         if b == 0:
             print('El material no existe en la base de datos.')
         csvfile.close()
-        csvfile = open('materiales.csv', 'w', newline='')
-        header = ['material', 'stock']
-        writer = csv.DictWriter(csvfile, fieldnames=header)
-        writer.writerows(data)
-        csvfile.close()
+        if b == 1: #solo guarda si existe el producto.
+            csvfile = open('materiales.csv', 'w', newline='')
+            header = ['material', 'stock']
+            writer = csv.DictWriter(csvfile, fieldnames=header)
+            writer.writerows(data)
+            csvfile.close()
     else:
         print('No existen datos para consultar.')
 
